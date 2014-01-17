@@ -330,7 +330,12 @@
             value = [self.defaultFormatter dateFromString:value];
     }
 
-    [self setValue:value forKey:key];
+    @try {
+        [self setValue:value forKey:key];
+    }
+    @catch (NSException *exception) {
+        
+    }
 }
 
 - (BOOL)isIntegerAttributeType:(NSAttributeType)attributeType {
